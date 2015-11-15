@@ -45,6 +45,7 @@ class App:
         self.xcoordPub = rospy.Publisher('camera_x', Int32, queue_size=10)
     
     def sendCoord(self, x):
+        x = x - 640;
         self.xcoordPub.publish(x)
 
     def findBestCluster(self, clusters):
