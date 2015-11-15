@@ -154,7 +154,7 @@ class App:
 
             if self.notDetected > 0:
                 try:
-                    self.sendCoord(-1)
+                    self.sendCoord(9999+640)
                 except rospy.ROSInterruptException:
                     pass
 
