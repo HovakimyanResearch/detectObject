@@ -40,7 +40,7 @@ ros::Publisher losPub("losAngle", &los);
 Robot Jim(0.28, 0.03, p13, 129, 9600, p27, p28, p29, p30, 20000, 3.0, 0.0001, 0, 2000, 100, 0, 0.01, dt); 
 
 //xCenter, FOV, interrupt rate, pinName, PID Params, pwm tx, addr, baud
-LOS Logitech(0, 70.42, dt, p20, 0.05, 0.0001, 0.00001, 2000, 5, 64, 0, p9, 129, 9600);
+LOS Logitech(640, 70.42, dt, p20, 0.05, 0.0001, 0.00001, 2000, 5, 64, 0, p9, 129, 9600);
 
 
 void PIDLoop() {
