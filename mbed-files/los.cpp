@@ -7,9 +7,8 @@
 
 LOS::LOS(float center, float fieldOfView, float deltaT, PinName pin, float kp, float ki, float kd, float ISat, float CSat, float CBias, float DZone, PinName sbtx, int addr, int baud) : pot(pin), Servo(kp, ki, kd, ISat, CSat, CBias, DZone), Sb(sbtx, addr, baud) {
             xCenter = 0;
-            xLength = center;
             FOV = fieldOfView;
-            kpixel = tan(FOV/2*M_PI/180)/xCenter;
+            kpixel = tan(FOV/2*M_PI/180)/center;
             dt = deltaT;
             angle = 0;
             prevAngle = angle;
@@ -19,7 +18,7 @@ LOS::LOS(float center, float fieldOfView, float deltaT, PinName pin, float kp, f
         }
 
 void LOS::addCamAngle(int pixel) {
-    angle = servoAngle + (atan(kpixel*(pixel - xLength)))*180/M_PI;
+    angle = servoAngle + (atan(kpixel*(pixel)))*180/M_PI;
 }        
 
 void LOS::potAngle() {
